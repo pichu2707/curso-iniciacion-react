@@ -4,7 +4,7 @@ import { FirstStepsApp } from "./FirstStepsApp"; // Recuerda ponerlo dentro de l
 import { MyAwesomeApp } from "./MyAwesomeApp";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {/* <FirstStepsApp /> */}
-    <MyAwesomeApp />
+    <FirstStepsApp />
+    {/* <MyAwesomeApp /> */}
   </StrictMode>,
 );
