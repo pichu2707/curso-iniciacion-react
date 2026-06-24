@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { GifList } from "./gifs/components/GifList";
 import { PreviousSearch } from "./gifs/components/PreviousSearches";
 import { CustomHeader } from "./shared/components/CustomHeader";
 import { SearchBar } from "./shared/components/SearchBar";
-import { getGifsByQuery } from "./gifs/actions/get-gifs-by-query.action";
+import { useGifs } from "./gifs/hooks/useGifs";
 
 export const GifsApp = () => {
+  const { handleSearch, previousTerms, handleTermClicked, gifs } = useGifs();
   const [gifs, setGifs] = useState<Gif[]>([]);
   const [PreviousTerms, setPreviousTerms] = useState<string[]>([]);
 
@@ -34,7 +34,7 @@ export const GifsApp = () => {
       {/* Busquedas previas */}
       <PreviousSearch
         title="Búsquedas previas"
-        searches={PreviousTerms}
+        searches={previousTerms}
         onLabelClicked={handleTermClicked}
       />
       {/* Gifs */}
