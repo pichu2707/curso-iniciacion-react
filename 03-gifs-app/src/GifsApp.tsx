@@ -6,21 +6,6 @@ import { useGifs } from "./gifs/hooks/useGifs";
 
 export const GifsApp = () => {
   const { handleSearch, previousTerms, handleTermClicked, gifs } = useGifs();
-  const [gifs, setGifs] = useState<Gif[]>([]);
-  const [PreviousTerms, setPreviousTerms] = useState<string[]>([]);
-
-  const handleTermClicked = (term: string) => {
-    console.log({ term });
-  };
-
-  const handleSearch = async (query: string) => {
-    query = query.trim().toLocaleLowerCase();
-    if (query.length === 0) return;
-    if (PreviousTerms.includes(query)) return;
-    setPreviousTerms([query, ...PreviousTerms].splice(0, 8));
-    const gifs = await getGifsByQuery(query);
-    setGifs(gifs);
-  };
 
   return (
     <>
